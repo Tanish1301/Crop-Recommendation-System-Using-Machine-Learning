@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Forest Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        p {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Random Forest Prediction</h2>
+
+    <form method="post" action="/predict">
+        <label for="feature1">N Value of Soil:</label>
+        <input type="text" id="feature1" name="feature1" placeholder="Enter N value" value="{{ feature1|default('') }}"><br>
+        
+        <label for="feature2">P Value of Soil:</label>
+        <input type="text" id="feature2" name="feature2" placeholder="Enter P value" value="{{ feature2|default('') }}"><br>
+        
+        <label for="feature3">K Value of Soil:</label>
+        <input type="text" id="feature3" name="feature3" placeholder="Enter K value" value="{{ feature3|default('') }}"><br>
+        
+        <label for="feature4">Temperature:</label>
+        <input type="text" id="feature4" name="feature4" placeholder="Enter temperature" value="{{ feature4|default('') }}"><br>
+        
+        <label for="feature5">Humidity:</label>
+        <input type="text" id="feature5" name="feature5" placeholder="Enter humidity" value="{{ feature5|default('') }}"><br>
+        
+        <label for="feature6">pH Value:</label>
+        <input type="text" id="feature6" name="feature6" placeholder="Enter pH value" value="{{ feature6|default('') }}"><br>
+        
+        <label for="feature7">Rainfall:</label>
+        <input type="text" id="feature7" name="feature7" placeholder="Enter rainfall" value="{{ feature7|default('') }}"><br>
+        
+        <label for="feature8">State:</label>
+        <input type="text" id="feature8" name="feature8" placeholder="Enter state" value="{{ feature8|default('') }}"><br>
+
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction_text %}
+        <p>{{ prediction_text }}</p>
+    {% endif %}
+</body>
+</html>
